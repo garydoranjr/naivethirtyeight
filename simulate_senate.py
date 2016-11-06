@@ -8,7 +8,7 @@ from progressbar import ProgressBar, Bar, ETA
 from matplotlib.backends.backend_pdf import PdfPages
 import time
 
-from simulate_clinton import main as presidential
+from simulate_president import main as presidential
 
 RED = (1.0, 0.36470588, 0.25)
 BLUE = (0.09019608, 0.61960784, 0.87843137)

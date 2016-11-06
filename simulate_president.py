@@ -84,15 +84,12 @@ def main(model, outputfile, nsamples, plotthreshold, called, justreturnprobs=Fal
     xmin = np.min(interesting) - 10
     xmax = np.max(interesting) + 10
     xmin = 160
-    xmax = 390
+    xmax = 380
 
     ax.text(xmin + 5, 0.9*ymax, 'Trump %.1f%%' % (100*tprob), ha='left', va='top', fontsize=20, color=RED)
     ax.text(xmax - 5, 0.9*ymax, 'Clinton %.1f%%' % (100*cprob), ha='right', va='top', fontsize=20, color=BLUE)
 
-    ticks = set(range(0, 538, 25))
-    ticks.remove(275)
-    ticks.add(270)
-    ticks.add(538)
+    ticks = set(range(170, 538, 20))
     ticks = np.array(sorted(ticks))
     ax.set_xticks(ticks + 0.5)
     ax.set_xticklabels([str(int(t)) for t in ticks])
