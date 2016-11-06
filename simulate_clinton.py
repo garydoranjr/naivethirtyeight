@@ -61,6 +61,9 @@ def main(model, outputfile, nsamples, plotthreshold, called, justreturnprobs=Fal
     T = simulate(states, tprobs, nsamples)
     cprob = np.average(C >= 270)
     tprob = np.average(T >= 270)
+    ptie = 1 - (cprob + tprob)
+    cprob += 0.5*ptie
+    tprob += 0.5*ptie
     if justreturnprobs: return cprob, tprob
 
     fig = pl.figure(figsize=(10, 6))
@@ -80,6 +83,8 @@ def main(model, outputfile, nsamples, plotthreshold, called, justreturnprobs=Fal
                              evt[pdt > plotthreshold]])
     xmin = np.min(interesting) - 10
     xmax = np.max(interesting) + 10
+    xmin = 160
+    xmax = 390
 
     ax.text(xmin + 5, 0.9*ymax, 'Trump %.1f%%' % (100*tprob), ha='left', va='top', fontsize=20, color=RED)
     ax.text(xmax - 5, 0.9*ymax, 'Clinton %.1f%%' % (100*cprob), ha='right', va='top', fontsize=20, color=BLUE)

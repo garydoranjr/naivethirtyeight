@@ -82,6 +82,8 @@ def main(model, outputfile, nsamples, plotthreshold, called):
                              evt[pdt > plotthreshold]])
     xmin = np.min(interesting) - 1
     xmax = np.max(interesting) + 1
+    xmin = 45
+    xmax = 56
 
     ax.text(xmin + 0.5, 0.9*ymax, 'Republicans %.1f%%' % (100*rprob), ha='left', va='top', fontsize=20, color=RED)
     ax.text(xmax - 0.5, 0.9*ymax, 'Democrats %.1f%%' % (100*dprob), ha='right', va='top', fontsize=20, color=BLUE)
