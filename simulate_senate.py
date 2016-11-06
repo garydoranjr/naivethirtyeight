@@ -8,10 +8,7 @@ from progressbar import ProgressBar, Bar, ETA
 from matplotlib.backends.backend_pdf import PdfPages
 import time
 
-from simulate_president import main as presidential
-
-RED = (1.0, 0.36470588, 0.25)
-BLUE = (0.09019608, 0.61960784, 0.87843137)
+from simulate_president import main as presidential, RED, BLUE, DPI
 
 def simulate(states, probs, N):
     np.random.seed(1)
@@ -67,6 +64,7 @@ def main(model, outputfile, nsamples, plotthreshold, called):
 
     fig = pl.figure(figsize=(10, 6))
     ax = fig.add_subplot(111)
+    ax.set_title('Senate', fontsize=24)
     pdc, evc, _ = ax.hist(C, normed=True,
         histtype='step', color=BLUE, lw=2, bins=np.arange(0, 101))
     pdt, evt, _ = ax.hist(T, normed=True,
@@ -101,13 +99,13 @@ def main(model, outputfile, nsamples, plotthreshold, called):
 
     if outputfile is not None:
         if outputfile == 'auto':
-            outputfile = ('figs/sentate_%d.png' % int(time.time()))
+            outputfile = ('figs/senate_%d.png' % int(time.time()))
         if outputfile.endswith('pdf'):
             pdf = PdfPages(outputfile)
             pdf.savefig(fig, bbox_inches='tight')
             pdf.close()
         else:
-            fig.savefig(outputfile)
+            fig.savefig(outputfile, dpi=DPI)
     else:
         pl.show()
 

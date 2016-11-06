@@ -11,6 +11,7 @@ import time
 from electoral_votes import VOTES
 assert(sum(VOTES.values()) == 538)
 
+DPI = 400
 RED = (1.0, 0.36470588, 0.25)
 BLUE = (0.09019608, 0.61960784, 0.87843137)
 
@@ -68,6 +69,7 @@ def main(model, outputfile, nsamples, plotthreshold, called, justreturnprobs=Fal
 
     fig = pl.figure(figsize=(10, 6))
     ax = fig.add_subplot(111)
+    ax.set_title('Presidency', fontsize=24)
     pdc, evc, _ = ax.hist(C, normed=True,
         histtype='step', color=BLUE, lw=2, bins=np.arange(0, 539))
     pdt, evt, _ = ax.hist(T, normed=True,
@@ -106,7 +108,7 @@ def main(model, outputfile, nsamples, plotthreshold, called, justreturnprobs=Fal
             pdf.savefig(fig, bbox_inches='tight')
             pdf.close()
         else:
-            fig.savefig(outputfile)
+            fig.savefig(outputfile, dpi=DPI)
     else:
         pl.show()
 
