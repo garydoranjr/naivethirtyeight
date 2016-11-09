@@ -4,7 +4,7 @@ AR: U
 AZ: U
 CA: D
 CO: U
-CT: U
+CT: D
 FL: U
 GA: U
 HI: U
@@ -15,15 +15,15 @@ IN: U
 KS: U
 KY: R
 LA: U
-MD: U
+MD: D
 MO: U
 NC: U
 ND: U
 NH: U
 NV: U
 NY: U
-OH: U
-OK: U
+OH: R
+OK: R
 OR: U
 PA: U
 SC: R
