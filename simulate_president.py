@@ -96,6 +96,7 @@ def main(model, outputfile, nsamples, plotthreshold, called, justreturnprobs=Fal
     ax.set_xticks(ticks + 0.5)
     ax.set_xticklabels([str(int(t)) for t in ticks])
     ax.set_xlim(xmin, xmax)
+    ax.set_ylim(ymin, ymax)
 
     ax.set_xlabel('Electoral Votes', fontsize=18)
     ax.set_ylabel('Probability Density', fontsize=18)
